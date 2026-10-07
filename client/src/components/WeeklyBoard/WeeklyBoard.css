@@ -1,0 +1,72 @@
+/* باب ثلاجة الأسبوع — بنفس ألوان زهراء */
+.wb { --wb-olive: #31452e; --wb-rust: #b65035; --wb-paper: #fffdf8; --wb-sticky: #f6e2a8; color: #302a22; }
+.wb-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; }
+.wb-top h1 { margin: 0; font-size: clamp(32px, 4vw, 52px); line-height: 1.15; color: var(--wb-olive); }
+.wb-lede { margin: 4px 0 0; color: #857c6d; max-width: 46ch; }
+.wb-maram { display: flex; align-items: flex-end; gap: 10px; }
+.wb-ava { position: relative; width: 88px; height: 102px; flex: none; }
+.wb-ava::before { content: ""; position: absolute; left: 0; bottom: 0; width: 88px; height: 88px; border-radius: 50%; background: #e6ecdf; box-shadow: inset 0 0 0 3px #fff; }
+.wb-ava img { position: relative; display: block; width: 88px; height: 102px; border-radius: 0 0 44px 44px; transform-origin: 50% 100%; animation: wb-pop .3s ease-out; }
+@keyframes wb-pop { 50% { transform: translateY(-6px) rotate(-4deg); } }
+.wb-bubble { background: #fff; border-radius: 18px 18px 18px 4px; padding: 10px 16px; font-size: 15px; max-width: 30ch; box-shadow: 0 2px 0 rgba(48, 42, 34, .08); }
+[dir="rtl"] .wb-bubble { border-radius: 18px 18px 4px 18px; }
+
+.wb-layout { display: grid; grid-template-columns: 1fr 290px; gap: 24px; align-items: start; }
+
+.wb-door {
+  position: relative; border-radius: 28px; padding: 36px 28px 40px;
+  background: linear-gradient(100deg, #e9ebed 0%, #dadde0 35%, #c4c8cc 60%, #dadde0 80%, #e9ebed 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .5), inset 0 -8px 20px rgba(0, 0, 0, .08), 0 12px 30px rgba(48, 42, 34, .12);
+}
+.wb-door::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .07) 0 1px, transparent 1px 3px); }
+.wb-door::after { content: ""; position: absolute; top: 22%; inset-inline-end: 12px; width: 10px; height: 56%; border-radius: 6px; background: linear-gradient(90deg, #9ea3a8, #e4e6e8, #9ea3a8); box-shadow: 0 2px 4px rgba(0, 0, 0, .2); }
+.wb-week { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px 18px; margin-inline-end: 18px; }
+
+.wb-note {
+  position: relative; background: var(--wb-paper); border-radius: 4px; padding: 26px 14px 14px; min-height: 168px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .08), 0 6px 12px rgba(0, 0, 0, .1);
+  background-image: repeating-linear-gradient(transparent 0 27px, #efe7da 27px 28px); background-position: 0 44px;
+  transform: rotate(var(--r, 0deg)); transition: transform .2s, box-shadow .2s;
+}
+.wb-note.over { box-shadow: 0 0 0 3px var(--wb-olive), 0 10px 20px rgba(0, 0, 0, .15); transform: scale(1.02); }
+.wb-note.today { box-shadow: 0 0 0 3px var(--wb-rust), 0 6px 12px rgba(0, 0, 0, .1); }
+.wb-magnet { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); width: 26px; height: 26px; border-radius: 50%; box-shadow: 0 3px 4px rgba(0, 0, 0, .3), inset -3px -4px 0 rgba(0, 0, 0, .15), inset 3px 3px 0 rgba(255, 255, 255, .35); }
+.wb-day { font-family: "Aref Ruqaa", Georgia, serif; font-size: 24px; line-height: 1.1; margin: 0 0 8px; display: flex; justify-content: space-between; align-items: baseline; }
+.wb-day small { font-family: inherit; font-size: 13px; color: var(--wb-rust); }
+.wb-meal { display: block; width: 100%; text-align: start; border: 0; background: none; padding: 0; cursor: grab; color: inherit; }
+.wb-emo { font-size: 30px; line-height: 1; }
+.wb-name { display: block; font-weight: 700; font-size: 16px; margin-top: 4px; }
+.wb-time { display: block; font-size: 13px; color: #6f665b; }
+.wb-rm { position: absolute; bottom: 8px; inset-inline-end: 8px; border: 0; background: none; font-size: 13px; color: #9a8f80; padding: 2px 4px; cursor: pointer; }
+.wb-rm:hover { color: var(--wb-rust); }
+.wb-add { width: 100%; height: 96px; border: 2px dashed #d6ccbc; border-radius: 10px; background: transparent; color: #857b6f; font-size: 15px; cursor: pointer; }
+.wb-add:hover { border-color: var(--wb-olive); color: var(--wb-olive); }
+
+.wb-sticky { position: sticky; top: 90px; background: var(--wb-sticky); color: #3a3222; padding: 24px 20px 20px; border-radius: 2px; box-shadow: 0 10px 18px rgba(0, 0, 0, .14); transform: rotate(1.2deg); }
+.wb-sticky::before { content: ""; position: absolute; top: -10px; left: 50%; width: 90px; height: 22px; transform: translateX(-50%) rotate(-2deg); background: rgba(255, 255, 255, .55); }
+.wb-sticky h2 { font-family: "Aref Ruqaa", Georgia, serif; font-size: 28px; margin: 0 0 2px; line-height: 1.2; }
+.wb-sub { font-size: 13px; margin: 0 0 12px; opacity: .75; min-height: 1em; }
+.wb-shop { list-style: none; margin: 0; padding: 0; }
+.wb-shop li { border-bottom: 1px solid rgba(58, 50, 34, .15); }
+.wb-shop label { display: flex; align-items: center; gap: 10px; padding: 6px 0; cursor: pointer; }
+.wb-shop input { accent-color: #31452e; width: 18px; height: 18px; }
+.wb-shop input:checked + span { text-decoration: line-through; opacity: .5; }
+.wb-x { font-size: 12px; opacity: .6; margin-inline-start: auto; }
+.wb-shop-empty { font-size: 14px; opacity: .8; border: 0 !important; }
+
+.wb-dialog { border: 0; border-radius: 22px; padding: 0; width: min(520px, 92vw); background: #f8f4eb; color: #302a22; box-shadow: 0 20px 50px rgba(0, 0, 0, .3); }
+.wb-dialog::backdrop { background: rgba(30, 27, 24, .45); }
+.wb-dh { padding: 20px 22px 8px; display: flex; justify-content: space-between; align-items: center; }
+.wb-dh h2 { font-size: 24px; margin: 0; color: var(--wb-olive); }
+.wb-close { border: 0; background: none; font-size: 24px; line-height: 1; padding: 6px; cursor: pointer; }
+.wb-list { display: grid; gap: 8px; padding: 8px 22px 12px; max-height: 55vh; overflow: auto; }
+.wb-pick { display: flex; align-items: center; gap: 12px; text-align: start; border: 1px solid #e9e1d3; background: var(--wb-paper); border-radius: 14px; padding: 10px 14px; cursor: pointer; color: inherit; }
+.wb-pick:hover { border-color: var(--wb-olive); }
+.wb-pick b { display: block; }
+.wb-t { font-size: 13px; color: #6f665b; }
+.wb-surprise { margin: 0 22px 22px; width: calc(100% - 44px); border: 0; border-radius: 14px; padding: 12px; background: var(--wb-olive); color: #fff; font-weight: 700; cursor: pointer; }
+
+@media (max-width: 1000px) { .wb-layout { grid-template-columns: 1fr; } .wb-sticky { position: relative; top: 0; transform: none; } .wb-week { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .wb-week { grid-template-columns: repeat(2, 1fr); gap: 24px 12px; margin: 0; } .wb-door { padding: 30px 14px; } .wb-door::after { display: none; } .wb-maram { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .wb * { animation: none !important; transition: none !important; } }
+[dir="ltr"] .wb-day, [dir="ltr"] .wb-sticky h2 { font-family: Georgia, "Times New Roman", serif; }

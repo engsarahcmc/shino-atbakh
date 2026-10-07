@@ -1,0 +1,153 @@
+/* الصفحة الرئيسية: مرام ترحب — بألوان زهراء */
+.mw {
+  position: relative;
+  overflow: hidden;
+  background: #31452e;
+  color: #fff9eb;
+  padding: 56px 0 0;
+}
+
+/* نقشة كاشي خفيفة بالخلفية */
+.mw-tiles {
+  position: absolute;
+  inset: 0;
+  opacity: .07;
+  background-image:
+    radial-gradient(circle at 50% 50%, transparent 38%, #fff9eb 39%, #fff9eb 41%, transparent 42%),
+    linear-gradient(45deg, transparent 47%, #fff9eb 48%, #fff9eb 52%, transparent 53%),
+    linear-gradient(-45deg, transparent 47%, #fff9eb 48%, #fff9eb 52%, transparent 53%);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+.mw-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 40px;
+  align-items: end;
+}
+
+.mw-copy { padding-bottom: 72px; }
+.mw-kicker {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: #e7b65e; font-size: 13px; font-weight: 700;
+}
+.mw-dot { width: 10px; height: 10px; border-radius: 50%; background: #e7b65e; box-shadow: 0 0 0 5px rgba(231, 182, 94, .2); }
+.mw h1 {
+  margin: 18px 0 16px;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1.2;
+  color: #fff9eb;
+}
+.mw h1 span { color: #e7b65e; }
+.mw-body { max-width: 44ch; margin: 0 0 28px; color: rgba(255, 249, 235, .78); font-size: 17px; line-height: 1.8; }
+
+.mw-choices { display: grid; gap: 10px; max-width: 480px; }
+.mw-choice {
+  display: flex; align-items: center; gap: 14px; width: 100%; text-align: start;
+  background: rgba(255, 249, 235, .06); color: #fff9eb;
+  border: 1px solid rgba(255, 249, 235, .18); border-radius: 16px;
+  padding: 14px 18px; cursor: pointer;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.mw-choice:hover, .mw-choice:focus-visible { background: rgba(255, 249, 235, .12); border-color: #e7b65e; transform: translateX(-4px); }
+[dir="ltr"] .mw-choice:hover, [dir="ltr"] .mw-choice:focus-visible { transform: translateX(4px); }
+.mw-choice.primary { background: #e7b65e; color: #352b1e; border-color: #e7b65e; }
+.mw-choice.primary:hover, .mw-choice.primary:focus-visible { background: #f0c875; }
+.mw-choice-icon { font-size: 26px; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: rgba(0, 0, 0, .12); flex: none; }
+.mw-choice b { display: block; font-size: 16px; }
+.mw-choice small { display: block; font-size: 13px; opacity: .75; }
+
+.mw-facts { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; margin: 28px 0 0; padding: 0; font-size: 13px; color: rgba(255, 249, 235, .6); }
+.mw-facts li::before { content: "✳ "; color: #e7b65e; }
+
+/* المسرح: مرام واقفة ورا الكاونتر */
+.mw-stage { position: relative; display: flex; justify-content: center; align-items: flex-end; min-height: 560px; }
+.mw-sun {
+  position: absolute; bottom: 60px; left: 50%; width: 420px; height: 420px; transform: translateX(-50%);
+  border-radius: 50%; background: radial-gradient(circle, rgba(231, 182, 94, .35), rgba(231, 182, 94, 0) 70%);
+}
+.mw-maram {
+  position: relative; z-index: 1; display: block; height: 540px; width: auto; max-width: 100%;
+  object-fit: contain; object-position: bottom; margin-bottom: 40px;
+  animation: mw-in .45s ease-out;
+}
+@keyframes mw-in { from { transform: translateY(12px) scale(.98); opacity: .6; } }
+
+.mw-counter {
+  position: absolute; z-index: 2; left: -100vw; right: -100vw; bottom: 0; height: 72px;
+  background: linear-gradient(#f3eadb, #e3d6c0);
+  border-top: 6px solid #fff9eb;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, .18);
+}
+/* أغراض واقفة فوق سطح الكاونتر، مو عابرة عليه */
+.mw-board {
+  position: absolute; z-index: 3; bottom: 70px; inset-inline-start: 5%;
+  width: 150px; height: 14px; border-radius: 7px 7px 4px 4px;
+  background: linear-gradient(#c79b69, #b0845a); box-shadow: 0 3px 0 #8e6641, 0 8px 10px rgba(0, 0, 0, .15);
+}
+.mw-board::after { content: "🍋🌿"; position: absolute; bottom: 8px; inset-inline-start: 22px; font-size: 26px; letter-spacing: 6px; }
+.mw-pot {
+  position: absolute; z-index: 3; bottom: 64px; inset-inline-end: 7%;
+  font-size: 50px; line-height: 1; filter: drop-shadow(0 6px 5px rgba(0, 0, 0, .25));
+}
+.mw-pot::before { content: ""; position: absolute; left: 10%; right: 10%; bottom: 2px; height: 8px; border-radius: 50%; background: rgba(0, 0, 0, .18); filter: blur(3px); z-index: -1; }
+
+.mw-bubble {
+  position: absolute; z-index: 3; top: 24px; inset-inline-start: 0; max-width: 270px;
+  background: #fff9eb; color: #302a22; border-radius: 22px 22px 22px 6px;
+  padding: 14px 18px; box-shadow: 0 12px 28px rgba(0, 0, 0, .2);
+}
+[dir="rtl"] .mw-bubble { border-radius: 22px 22px 6px 22px; }
+.mw-hello { display: block; font-size: 13px; color: #b65035; font-weight: 700; margin-bottom: 2px; }
+.mw-line { display: block; font-size: 17px; font-weight: 700; animation: mw-line .3s ease-out; }
+@keyframes mw-line { from { opacity: 0; transform: translateY(4px); } }
+
+/* مكونات طايرة حوالين مرام: قوسين متوازنين يمين ويسار */
+.mw-float {
+  position: absolute; z-index: 1; line-height: 1; font-size: var(--s, 32px);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .25));
+  animation: var(--a, mw-bob) var(--d, 5s) ease-in-out infinite;
+  animation-delay: var(--w, 0s);
+  pointer-events: none;
+}
+/* الجهة البعيدة عن الفقاعة */
+.mw-float.f1  { top: 70px;  inset-inline-end: 6%;   --s: 40px; --d: 5.5s; }
+.mw-float.f2  { top: 175px; inset-inline-end: -4%;   --s: 30px; --d: 6.5s; --w: -1.2s; --a: mw-drift; }
+.mw-float.f3  { top: 265px; inset-inline-end: 5%;  --s: 34px; --d: 4.8s; --w: -2.4s; --a: mw-spin; }
+.mw-float.f4  { top: 355px; inset-inline-end: -2%;   --s: 38px; --d: 6s;   --w: -3.1s; }
+.mw-float.f5  { top: 15px;  inset-inline-end: 0;  --s: 28px; --d: 5.2s; --w: -.6s;  --a: mw-drift; }
+/* جهة الفقاعة: تبدي تحتها */
+.mw-float.f6  { top: 150px; inset-inline-start: 0;  --s: 36px; --d: 5.8s; --w: -1.8s; --a: mw-spin; }
+.mw-float.f7  { top: 240px; inset-inline-start: 8%; --s: 30px; --d: 5s;   --w: -3.5s; }
+.mw-float.f8  { top: 330px; inset-inline-start: -2%;  --s: 34px; --d: 6.8s; --w: -2.2s; --a: mw-drift; }
+.mw-float.f9  { top: 420px; inset-inline-start: 7%; --s: 28px; --d: 4.6s; --w: -.9s;  --a: mw-spin; }
+/* زغار وبعاد شوية، يعطون عمق */
+.mw-float.f10 { top: 10px;  inset-inline-end: 17%;   --s: 22px; --d: 7s;   --w: -4s;   opacity: .75; --a: mw-drift; }
+.mw-float.f11 { top: 300px; inset-inline-end: -9%;   --s: 20px; --d: 6.2s; --w: -2.8s; opacity: .7; }
+.mw-float.f12 { top: 470px; inset-inline-start: -4%; --s: 20px; --d: 7.4s; --w: -5s;   opacity: .7; --a: mw-drift; }
+
+@keyframes mw-bob   { 50% { transform: translateY(-14px) rotate(6deg); } }
+@keyframes mw-drift { 33% { transform: translate(8px, -10px) rotate(-8deg); } 66% { transform: translate(-6px, -4px) rotate(5deg); } }
+@keyframes mw-spin  { 50% { transform: translateY(-10px) rotate(-14deg) scale(1.06); } }
+
+@media (max-width: 900px) {
+  .mw { padding-top: 32px; }
+  .mw-inner { grid-template-columns: 1fr; gap: 0; }
+  .mw-copy { padding: 28px 0 40px; }
+  .mw-stage { order: -1; min-height: 340px; }
+  .mw-maram { height: 300px; }
+  /* الموبايل: 6 مكونات بس حتى ما تزدحم */
+  .mw-float { font-size: calc(var(--s, 32px) * .72); }
+  .mw-float.f4, .mw-float.f9, .mw-float.f10, .mw-float.f11, .mw-float.f12 { display: none; }
+  .mw-float.f1 { top: 60px; }  .mw-float.f2 { top: 140px; } .mw-float.f3 { top: 215px; }
+  .mw-float.f6 { top: 110px; } .mw-float.f7 { top: 180px; } .mw-float.f8 { top: 225px; }
+  .mw-board { width: 110px; } .mw-board::after { font-size: 20px; inset-inline-start: 14px; }
+  .mw-pot { font-size: 40px; }
+  .mw-bubble { top: 8px; max-width: 220px; }
+  .mw-sun { width: 300px; height: 300px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mw * { animation: none !important; transition: none !important; }
+}

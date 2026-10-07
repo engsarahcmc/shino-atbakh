@@ -1,0 +1,17 @@
+.air-art { position: relative; background: radial-gradient(circle at 50% 70%, #f6e2a8, #e6ecdf 70%); }
+.rd-media .air-art img { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); height: 94%; width: auto; max-width: none; object-fit: contain; }
+
+.air-wait { display: flex; align-items: center; gap: 16px; background: #fffdf8; border: 1px solid #e9e1d3; border-radius: 18px; padding: 16px 20px; }
+.air-wait img { width: 64px; height: 74px; object-fit: cover; object-position: top; border-radius: 0 0 32px 32px; background: #e6ecdf; animation: air-bob 1.4s ease-in-out infinite; }
+.air-wait p { margin: 0; font-weight: 700; color: #31452e; }
+.air-wait.bad img { animation: none; }
+.air-wait.bad p { color: #9a3a22; }
+.air-wait button { margin-inline-start: auto; border: 0; border-radius: 12px; padding: 10px 16px; background: #31452e; color: #fff9eb; font-weight: 700; cursor: pointer; }
+@keyframes air-bob { 50% { transform: translateY(-4px); } }
+
+.air-tip { display: flex; gap: 14px; align-items: flex-start; margin-top: 20px; background: #f6e2a8; border-radius: 16px; padding: 14px 18px; }
+.air-tip img { width: 56px; height: 64px; object-fit: cover; object-position: top; border-radius: 0 0 28px 28px; background: #fff9eb; flex: none; }
+.air-tip b { color: #31452e; }
+.air-tip p { margin: 2px 0 0; }
+
+@media (prefers-reduced-motion: reduce) { .air-wait img { animation: none; } }

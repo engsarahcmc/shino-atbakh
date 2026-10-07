@@ -1,0 +1,70 @@
+.rd { padding: 40px 0 72px; color: #302a22; }
+.rd-back { display: inline-block; margin-bottom: 24px; color: #31452e; font-weight: 700; text-decoration: none; }
+.rd-back:hover { text-decoration: underline; }
+
+.rd-head { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; margin-bottom: 48px; }
+.rd-media { border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3; background: #e9dfce; }
+.rd-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rd-art { width: 100%; height: 100%; display: grid; place-items: center; font-size: 120px; }
+.rd-intro h1 { margin: 6px 0 12px; font-size: clamp(34px, 4vw, 56px); line-height: 1.15; color: #31452e; }
+.rd-intro p { margin: 0 0 24px; color: #6f665b; font-size: 17px; }
+.rd-facts { display: flex; gap: 12px; flex-wrap: wrap; margin: 0; }
+.rd-facts div { background: #fffdf8; border: 1px solid #e9e1d3; border-radius: 12px; padding: 10px 16px; min-width: 110px; }
+.rd-facts dt { font-size: 12px; color: #857c6d; }
+.rd-facts dd { margin: 0; font-weight: 700; font-size: 17px; }
+
+.rd-body { display: grid; grid-template-columns: 320px 1fr; gap: 32px; align-items: start; }
+.rd-ingredients { position: sticky; top: 96px; background: #f6e2a8; border-radius: 4px; padding: 24px 22px; box-shadow: 0 10px 18px rgba(0, 0, 0, .1); }
+.rd-ingredients h2, .rd-steps h2 { margin: 0 0 4px; font-size: 26px; color: #31452e; }
+.rd-hint { margin: 0 0 12px; font-size: 13px; opacity: .75; }
+.rd-ingredients ul { list-style: none; margin: 0; padding: 0; }
+.rd-ingredients li { border-bottom: 1px solid rgba(58, 50, 34, .15); }
+.rd-ingredients label { display: flex; gap: 10px; align-items: center; padding: 8px 0; cursor: pointer; }
+.rd-ingredients input { accent-color: #31452e; width: 18px; height: 18px; flex: none; }
+.rd-ingredients input:checked + span { text-decoration: line-through; opacity: .5; }
+
+.rd-steps-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+.rd-progress { font-size: 14px; color: #857c6d; }
+.rd-steps ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.rd-steps button {
+  display: flex; gap: 16px; align-items: flex-start; width: 100%; text-align: start; color: inherit;
+  background: #fffdf8; border: 1px solid #e9e1d3; border-radius: 14px; padding: 18px 20px; font-size: 17px; line-height: 1.7; cursor: pointer;
+  transition: border-color .2s, background .2s;
+}
+.rd-steps button:hover { border-color: #31452e; }
+.rd-num { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #31452e; color: #fff; font-weight: 700; }
+.rd-steps li.done button { background: #eef2e8; }
+.rd-steps li.done button > span:last-child { opacity: .6; text-decoration: line-through; }
+.rd-steps li.done .rd-num { background: #b65035; }
+.rd-done { display: flex; align-items: center; gap: 14px; margin-top: 20px; background: #e6ecdf; border-radius: 16px; padding: 12px 18px; }
+.rd-done img { width: 64px; height: 74px; object-fit: cover; object-position: top; border-radius: 0 0 32px 32px; }
+.rd-done p { margin: 0; font-weight: 700; color: #31452e; }
+
+@media (max-width: 900px) {
+  .rd-head, .rd-body { grid-template-columns: 1fr; }
+  .rd-ingredients { position: static; }
+}
+
+/* وصفة بريميوم مقفولة */
+.rd-premium { color: #b8862a; font-weight: 800; }
+.rd-locked { position: relative; margin-top: 32px; min-height: 340px; display: grid; place-items: center; }
+.rd-locked-peek {
+  position: absolute; inset: 0; margin: 0; padding: 28px 32px; list-style: none;
+  display: grid; align-content: start; gap: 14px;
+  border-radius: 22px; background: #fffdf8; border: 1px solid #e7dfd1;
+  filter: blur(6px); user-select: none; pointer-events: none; font-size: 18px; color: #302a22;
+}
+.rd-locked-card {
+  position: relative; z-index: 1; width: min(440px, 92%); padding: 28px; text-align: center;
+  border-radius: 22px; background: #31452e; border: 2px solid #e7b65e; color: #fff9eb;
+  box-shadow: 0 24px 60px rgba(49, 69, 46, .3);
+}
+.rd-locked-card img { width: 84px; height: 84px; border-radius: 50%; background: #fff9eb; margin: 0 auto 10px; display: block; object-fit: cover; }
+.rd-locked-card h2 { margin: 0 0 8px; font-family: Georgia, "Times New Roman", serif; font-size: 22px; color: #e7b65e; }
+.rd-locked-card p { margin: 0 0 18px; line-height: 1.7; color: rgba(255, 249, 235, .82); }
+.rd-unlock {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px;
+  border-radius: 10px; background: #e7b65e; color: #352b1e; font-weight: 900; text-decoration: none;
+}
+.rd-unlock:hover { background: #f0c875; }
+.rd-unlock:focus-visible { outline: 3px solid #fff9eb; outline-offset: 2px; }

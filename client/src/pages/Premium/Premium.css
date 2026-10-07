@@ -1,0 +1,159 @@
+/* صفحة بريميوم: نفس ألوان الموقع (زيتوني + ذهبي + كريمي) */
+.pm { padding-bottom: 72px; }
+
+.pm-hero {
+  position: relative;
+  overflow: hidden;
+  background: #31452e;
+  color: #fff9eb;
+}
+.pm-tiles {
+  position: absolute; inset: 0; opacity: .07; pointer-events: none;
+  background-image:
+    radial-gradient(circle at 50% 50%, transparent 38%, #fff9eb 39%, #fff9eb 41%, transparent 42%),
+    linear-gradient(45deg, transparent 47%, #fff9eb 48%, #fff9eb 52%, transparent 53%),
+    linear-gradient(-45deg, transparent 47%, #fff9eb 48%, #fff9eb 52%, transparent 53%);
+  background-size: 64px 64px;
+}
+.pm-hero-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: end;
+  gap: 32px;
+  padding-top: 48px;
+}
+.pm-hero-inner > div { padding-bottom: 64px; }
+.pm-hero h1 {
+  margin: 0 0 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 4.2vw, 54px);
+  line-height: 1.2;
+  color: #fff9eb;
+  max-width: 18ch;
+}
+.pm-hero p { max-width: 46ch; margin: 0; color: rgba(255, 249, 235, .8); font-size: 17px; line-height: 1.8; }
+.pm-hero .pm-demo { margin-top: 22px; }
+.pm-maram { justify-self: center; height: 340px; width: auto; max-width: 100%; object-fit: contain; object-position: bottom; }
+
+.pm-demo {
+  display: inline-flex; gap: 8px; align-items: flex-start;
+  padding: 10px 14px; border-radius: 12px;
+  background: rgba(231, 182, 94, .14); border: 1px dashed rgba(231, 182, 94, .6);
+  color: #f3dcae; font-size: 13px; line-height: 1.6;
+}
+
+/* الخطط */
+.pm-plans { margin-top: -28px; position: relative; }
+.pm-toggle {
+  display: flex; width: max-content; margin: 0 auto 28px; padding: 5px; gap: 4px;
+  background: #fffdf8; border: 1px solid #e7dfd1; border-radius: 999px;
+  box-shadow: 0 14px 36px rgba(65, 48, 30, .1);
+}
+.pm-toggle button {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 22px; border: 0; border-radius: 999px;
+  background: transparent; color: #52645d; font-weight: 800; font-size: 14px; cursor: pointer;
+}
+.pm-toggle button.on { background: #31452e; color: #fff9eb; }
+.pm-toggle small { font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 999px; background: #e7b65e; color: #352b1e; }
+.pm-toggle button:focus-visible { outline: 3px solid #e7b65e; outline-offset: 2px; }
+
+.pm-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 20px; align-items: stretch; max-width: 900px; margin: 0 auto; }
+.pm-plan {
+  position: relative;
+  display: flex; flex-direction: column;
+  padding: 28px; border-radius: 22px;
+  background: #fffdf8; border: 1px solid #e7dfd1;
+}
+.pm-plan h2 { margin: 0 0 6px; font-family: Georgia, "Times New Roman", serif; font-size: 24px; color: #302a22; }
+.pm-price { margin: 0 0 18px; color: #817767; font-size: 15px; }
+.pm-price b { font-size: 40px; color: #302a22; font-family: Georgia, "Times New Roman", serif; }
+.pm-plan ul { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 12px; align-content: start; flex: 1; }
+.pm-plan li { position: relative; padding-inline-start: 26px; line-height: 1.6; color: #302a22; }
+.pm-plan li::before { content: "✓"; position: absolute; inset-inline-start: 0; color: #49633f; font-weight: 900; }
+.pm-plan li.muted { color: #a69c8b; }
+.pm-plan li.muted::before { content: "•"; color: #c9bfae; }
+.pm-current { align-self: flex-start; padding: 8px 14px; border-radius: 999px; background: #e8eadb; color: #30472d; font-size: 13px; font-weight: 800; }
+
+/* بطاقة بريميوم: مثل بطاقة عضوية ذهبية */
+.pm-plan.gold { background: #31452e; border: 2px solid #e7b65e; color: #fff9eb; box-shadow: 0 24px 60px rgba(49, 69, 46, .28); overflow: hidden; }
+.pm-plan.gold::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .06;
+  background-image: linear-gradient(45deg, transparent 47%, #e7b65e 48%, #e7b65e 52%, transparent 53%), linear-gradient(-45deg, transparent 47%, #e7b65e 48%, #e7b65e 52%, transparent 53%);
+  background-size: 40px 40px;
+}
+.pm-plan.gold > *:not(.pm-seal) { position: relative; z-index: 1; }
+.pm-plan.gold h2, .pm-plan.gold .pm-price b { color: #e7b65e; }
+.pm-plan.gold .pm-price { color: rgba(255, 249, 235, .7); }
+.pm-plan.gold li { color: #fff9eb; }
+.pm-plan.gold li::before { color: #e7b65e; }
+.pm-seal {
+  position: absolute; top: 22px; inset-inline-end: 22px;
+  width: 46px; height: 46px; display: grid; place-items: center;
+  border-radius: 50%; border: 1px solid #e7b65e; color: #e7b65e; font-size: 20px; z-index: 1;
+}
+.pm-cta, .pm-pay {
+  min-height: 52px; padding: 0 24px; border: 0; border-radius: 10px;
+  background: #e7b65e; color: #352b1e; font-weight: 900; font-size: 15px; cursor: pointer;
+  transition: background .18s, transform .18s;
+}
+.pm-cta:hover, .pm-pay:hover { background: #f0c875; transform: translateY(-2px); }
+.pm-cta:focus-visible, .pm-pay:focus-visible { outline: 3px solid #fff9eb; outline-offset: 2px; }
+.pm-active { margin: 0; padding: 14px; border-radius: 12px; background: rgba(231, 182, 94, .14); line-height: 1.7; }
+.pm-active a { color: #e7b65e; font-weight: 800; text-decoration: underline; }
+
+/* نافذة الدفع */
+.pm-dialog {
+  width: min(460px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow-y: auto;
+  margin: auto; padding: 28px; border: 0; border-radius: 22px;
+  background: #fffdf8; color: #302a22; box-shadow: 0 30px 80px rgba(20, 28, 18, .35);
+}
+.pm-dialog::backdrop { background: rgba(28, 38, 26, .6); backdrop-filter: blur(3px); }
+.pm-dialog h2 { margin: 0 0 8px; font-family: Georgia, "Times New Roman", serif; font-size: 24px; color: #31452e; }
+.pm-x {
+  position: absolute; top: 14px; inset-inline-end: 14px; width: 36px; height: 36px;
+  border: 0; border-radius: 50%; background: #f1ebdf; color: #52645d; font-size: 22px; cursor: pointer;
+}
+.pm-summary { display: flex; justify-content: space-between; gap: 12px; margin: 0 0 20px; padding: 12px 14px; border-radius: 12px; background: #f3efe4; color: #52645d; }
+.pm-summary b { color: #31452e; }
+.pm-methods { border: 0; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.pm-methods legend { margin-bottom: 8px; font-weight: 800; font-size: 14px; }
+.pm-methods label {
+  display: flex; align-items: center; gap: 12px; padding: 12px 14px; cursor: pointer;
+  border: 1.5px solid #e7dfd1; border-radius: 12px; font-weight: 700; transition: border-color .15s, background .15s;
+}
+.pm-methods label.on { border-color: #49633f; background: #eef1e6; }
+.pm-methods input { accent-color: #49633f; width: 18px; height: 18px; }
+.pm-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 9px; color: #fff; font-weight: 900; font-size: 13px; }
+.pm-mark.zaincash { background: #1a1a1a; }
+.pm-mark.qicard { background: #f6a21b; }
+.pm-mark.fastpay { background: #d7263d; }
+
+.pm-dialog .pm-field { display: grid; gap: 6px; margin-bottom: 6px; font-weight: 800; font-size: 14px; }
+.pm-dialog .pm-field input {
+  min-height: 50px; padding: 0 14px; border: 1.5px solid #e5dccd; border-radius: 10px;
+  background: #fff; font-size: 17px; letter-spacing: .06em; text-align: left;
+}
+.pm-dialog .pm-field input:focus { outline: none; border-color: #49633f; box-shadow: 0 0 0 3px rgba(73, 99, 63, .2); }
+.pm-dialog .pm-field input[aria-invalid="true"] { border-color: #c2412c; }
+.pm-err { margin: 6px 0 0; color: #c2412c; font-size: 13px; font-weight: 700; }
+.pm-dialog .pm-pay { width: 100%; margin-top: 16px; border-radius: 10px; background: #e7b65e; color: #352b1e; }
+.pm-dialog .pm-pay:disabled { opacity: .7; cursor: wait; transform: none; }
+.pm-demo.small { display: block; margin: 12px 0 0; background: #f7f0e1; border-color: #e2cf9f; color: #7a6538; font-size: 12px; text-align: center; }
+
+.pm-done { text-align: center; }
+.pm-done img { height: 180px; margin: 0 auto 8px; display: block; animation: pm-pop .5s ease-out; }
+.pm-done p { color: #52645d; line-height: 1.7; margin: 0; }
+@keyframes pm-pop { from { transform: scale(.8); opacity: 0; } }
+
+@media (max-width: 820px) {
+  .pm-hero-inner { grid-template-columns: 1fr; padding-top: 32px; }
+  .pm-hero-inner > div { padding-bottom: 0; }
+  .pm-maram { height: 220px; }
+  .pm-grid { grid-template-columns: 1fr; }
+  .pm-plan.gold { order: -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pm *, .pm-dialog * { animation: none !important; transition: none !important; }
+}

@@ -1,0 +1,65 @@
+.pf { padding: 48px 0 72px; color: #302a22; }
+.pf-grid { display: grid; grid-template-columns: 360px 1fr; gap: 28px; align-items: start; }
+
+/* بطاقة الشيف */
+.pf-card {
+  position: relative; overflow: hidden; text-align: center;
+  background: #31452e; color: #fff9eb; border-radius: 26px; padding: 32px 26px 26px;
+  box-shadow: 0 20px 40px rgba(48, 42, 34, .18);
+}
+.pf-card::before {
+  content: ""; position: absolute; inset: 0; opacity: .07; pointer-events: none;
+  background-image: linear-gradient(45deg, transparent 47%, #fff9eb 48%, #fff9eb 52%, transparent 53%),
+    linear-gradient(-45deg, transparent 47%, #fff9eb 48%, #fff9eb 52%, transparent 53%);
+  background-size: 48px 48px;
+}
+.pf-label { position: relative; font-size: 12px; font-weight: 700; color: #e7b65e; }
+.pf-avatar { position: relative; display: flex; justify-content: center; margin: 12px 0 8px; }
+.pf-card h1 { position: relative; margin: 0; font-size: 30px; color: #fff9eb; }
+.pf-email { position: relative; margin: 2px 0 12px; opacity: .7; font-size: 14px; }
+.pf-role { position: relative; display: inline-block; padding: 4px 14px; border-radius: 999px; background: rgba(255, 249, 235, .14); font-size: 13px; font-weight: 700; }
+.pf-role.admin { background: #e7b65e; color: #352b1e; }
+.pf-since { position: relative; margin: 10px 0 0; font-size: 13px; opacity: .65; }
+.pf-stats { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 22px 0 18px; }
+.pf-stats div { background: rgba(255, 249, 235, .08); border: 1px solid rgba(255, 249, 235, .15); border-radius: 14px; padding: 12px 8px; }
+.pf-stats b { display: block; font-size: 26px; color: #e7b65e; }
+.pf-stats span { font-size: 12px; opacity: .8; }
+.pf-sign { position: absolute; top: 14px; inset-inline-end: 12px; width: 58px; opacity: .95; transform: rotate(8deg); pointer-events: none; }
+.pf-actions { position: relative; display: grid; gap: 8px; }
+
+.pf-btn { display: inline-flex; justify-content: center; align-items: center; border: 0; border-radius: 14px; padding: 12px 18px; background: #e7b65e; color: #352b1e; font-weight: 700; text-decoration: none; cursor: pointer; }
+.pf-btn.ghost { background: transparent; color: #fff9eb; border: 1px solid rgba(255, 249, 235, .35); }
+.pf-panel .pf-btn { background: #31452e; color: #fff9eb; justify-self: start; }
+
+.pf-side { display: grid; gap: 22px; }
+.pf-panel { background: #fffdf8; border: 1px solid #e9e1d3; border-radius: 22px; padding: 26px; }
+.pf-panel h2 { margin: 0 0 14px; font-size: 24px; color: #31452e; }
+.pf-panel h3 { margin: 18px 0 8px; font-size: 16px; }
+.pf-note { margin: -8px 0 4px; font-size: 13px; color: #857c6d; }
+.pf-form { display: grid; gap: 14px; }
+.pf-form label { display: grid; gap: 6px; font-size: 14px; font-weight: 700; }
+.pf-form input { border: 1px solid #ddd3c4; border-radius: 12px; padding: 11px 14px; font: inherit; font-size: 16px; background: #fff; }
+[dir="rtl"] .pf-form input[dir="ltr"] { text-align: right; }
+.pf-ok { margin: 0; color: #31452e; font-weight: 700; }
+.pf-err { margin: 0; color: #9a3a22; }
+.pf-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.pf-chips button { border: 1px solid #ddd3c4; background: #fff; border-radius: 999px; padding: 6px 16px; cursor: pointer; }
+.pf-chips button[aria-pressed="true"] { background: #31452e; color: #fff9eb; border-color: #31452e; }
+
+.pf-guest { display: grid; justify-items: center; text-align: center; gap: 8px; }
+.pf-guest img { height: 260px; width: auto; }
+.pf-guest h1 { margin: 8px 0 0; font-size: 32px; color: #31452e; }
+.pf-guest p { margin: 0 0 12px; color: #857c6d; max-width: 44ch; }
+.pf-guest .pf-btn { background: #31452e; color: #fff9eb; }
+
+@media (max-width: 900px) { .pf-grid { grid-template-columns: 1fr; } }
+
+/* الاشتراك */
+.pf-role.premium { margin-inline-start: 6px; background: #31452e; border: 1px solid #e7b65e; color: #e7b65e; }
+.pf-sub p { margin: 0 0 14px; color: #52645d; line-height: 1.7; }
+.pf-sub.on { background: #31452e; border-color: #e7b65e; }
+.pf-sub.on h2 { color: #e7b65e; }
+.pf-sub.on p { color: rgba(255, 249, 235, .85); }
+.pf-panel .pf-btn.gold { background: #e7b65e; color: #352b1e; }
+.pf-panel .pf-btn.ghost-dark { background: transparent; color: #fff9eb; border: 1px solid rgba(255, 249, 235, .4); }
+.pf-panel .pf-btn:disabled { opacity: .6; cursor: wait; }
