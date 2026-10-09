@@ -25,7 +25,7 @@ function RecipeDetail() {
         <Navbar />
         <main className="py-16 min-h-[70vh]">
           <div className="container empty-state">
-            <img className="empty-maram" src="/maram/full-confused.webp" alt="" />
+            <img className="empty-maram" src={`${import.meta.env.BASE_URL}maram/full-confused.webp`} alt="" />
             <h2>{t("detail.notFound")}</h2>
             <Link className="button button-olive" to="/explore">{t("detail.browse")}</Link>
           </div>
@@ -77,7 +77,7 @@ function RecipeDetail() {
                 {ingredients.slice(0, 5).map((item) => <li key={item}>{item}</li>)}
               </ul>
               <div className="rd-locked-card">
-                <img src="/maram/avatar-excited.webp" alt="" />
+                <img src={`${import.meta.env.BASE_URL}maram/avatar-excited.webp`} alt="" />
                 <h2 id="rd-locked-title">{t("premium.lockedTitle")}</h2>
                 <p>{t("premium.lockedBody")}</p>
                 <Link to="/premium" className="rd-unlock">🔒 {t("premium.unlock")}</Link>
@@ -125,7 +125,7 @@ function RecipeDetail() {
               </ol>
               {stepsDone === steps.length && (
                 <div className="rd-done">
-                  <img src="/maram/avatar-happy.webp" alt="" />
+                  <img src={`${import.meta.env.BASE_URL}maram/avatar-happy.webp`} alt="" />
                   <p>{t("detail.allDone")}</p>
                 </div>
               )}

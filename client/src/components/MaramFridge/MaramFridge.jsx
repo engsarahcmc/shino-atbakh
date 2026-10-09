@@ -179,7 +179,7 @@ function MaramFridge() {
       <div className="mf-hero">
         <div className="mf-viewport">
           <div className="mf-stage">
-            <img src="/maram/fridge.webp" alt={t("fridge.fridgeAlt")} />
+            <img src={`${import.meta.env.BASE_URL}maram/fridge.webp`} alt={t("fridge.fridgeAlt")} />
             {ITEMS.map((item) => {
               const name = nameOf(item.key)
               const on = ingredients.includes(name)
@@ -210,7 +210,7 @@ function MaramFridge() {
               <img
                 key={mood}
                 className={status === "loading" ? "think" : "pop"}
-                src={`/maram/avatar-${mood}.webp`}
+                src={`${import.meta.env.BASE_URL}maram/avatar-${mood}.webp`}
                 alt={t("fridge.maramAlt")}
               />
             </div>
@@ -335,7 +335,7 @@ function MaramFridge() {
           <div className="mf-reshead">
             <img
               className="mf-full"
-              src={`/maram/full-${results.length ? "happy" : "confused"}.webp`}
+              src={`${import.meta.env.BASE_URL}maram/full-${results.length ? "happy" : "confused"}.webp`}
               alt={t("fridge.maramFullAlt")}
             />
             <div>

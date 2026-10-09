@@ -1,86 +1,109 @@
-# 🍳 شنو أطبخ؟ — Shno Atbakh?
+<div dir="rtl" align="right">
 
-مشروع تخرج Full-Stack: تطبيق يقترح وصفات حسب المكونات اللي عندك، مع مساعدة ذكية اسمها **مرام**.
+# 🍳 شنو أطبخ؟
 
-## ترتيب المشروع
+**منصة وصفات ذكية، تقترح عليك شنو تطبخ من المكونات اللي عندك، ويا مساعدة ذكية اسمها «مرام».**
 
-```
-shno-atbakh/
-├── client/   الواجهة (React + Vite + Tailwind)
-└── server/   الباكند (Node.js + Express + PostgreSQL + Gemini)
-```
+### 🔗 [جرّب الموقع مباشرة](https://engsarahcmc.github.io/shino-atbakh/)
 
-## التشغيل
+حساب تجريبي للمدير (حتى تشوف لوحة التحكم): `demo@shno.app` / `demo1234`
 
-### 1. السيرفر (المنفذ 3000)
+![الصفحة الرئيسية ومرام](docs/screenshots/home.jpg)
+
+## الفكرة
+
+كل يوم نسأل نفس السؤال: **شنو أطبخ اليوم؟** نضيع وقت ونفتش بأكثر من موقع، ومكونات تضل بالثلاجة لحد ما تخرب، وأغلب التطبيقات أجنبية وما تعرف أكلاتنا.
+
+«شنو أطبخ؟» يحول هذا السؤال لتجربة سهلة: تختار اللي بثلاجتك، ومرام تقترح وصفات تناسبك، بالعربي والإنكليزي.
+
+المنصة للجميع. مثلاً الأم الموظفة اللي ما عندها وقت تفكر، أو طالب القسم الداخلي اللي عنده مكونات قليلة.
+
+## الميزات
+
+| الميزة | الوصف |
+|---|---|
+| 🤖 **مرام** | مساعدة ذكية مربوطة بـ Google Gemini، تقترح وصفات حسب المكونات وعدد الأشخاص |
+| 🧊 **الثلاجة التفاعلية** | تختار المكونات بالضغط، بدون كتابة |
+| 📖 **صفحة الوصفة** | المكونات بالكميات وخطوات التحضير |
+| 📅 **أكلات الأسبوع** | تخطيط وجبات الأسبوع |
+| 🔍 **استكشف والمفضلة** | 22 وصفة عراقية وعالمية، فلترة، وحفظ المفضلة |
+| 👤 **الحسابات** | تسجيل بالإيميل أو بحساب Google |
+| ✦ **اشتراك Premium** | وصفات حصرية ومرام بلا حدود، ويا دفع تجريبي (زين كاش، كي كارد، فاست پاي) |
+| 🛡️ **لوحة التحكم** | إدارة المستخدمين والصلاحيات، وأرقام المشتركين والإيرادات |
+| 🌐 **لغتين** | عربي (من اليمين لليسار) وإنكليزي |
+
+## صور من المنصة
+
+| الثلاجة التفاعلية | اقتراحات مرام |
+|---|---|
+| ![الثلاجة](docs/screenshots/fridge.jpg) | ![اقتراحات مرام](docs/screenshots/maram.jpg) |
+| **صفحة الوصفة** | **استكشف الوصفات** |
+| ![الوصفة](docs/screenshots/recipe.jpg) | ![استكشف](docs/screenshots/explore.jpg) |
+| **وصفة حصرية لمشتركي Premium** | **صفحة Premium** |
+| ![وصفة مقفولة](docs/screenshots/locked.jpg) | ![بريميوم](docs/screenshots/premium.jpg) |
+
+![لوحة التحكم والأرباح](docs/screenshots/admin.jpg)
+
+## نموذج الربح
+
+- **اشتراك Premium** (منفّذ): 5,000 د.ع شهرياً أو 48,000 د.ع سنوياً. المجاني: 5 اقتراحات من مرام باليوم.
+- **إعلانات** علامات غذائية بين الوصفات، تختفي للمشتركين.
+- **شراكات** ويا المتاجر: طلب مكونات الوصفة من متجر شريك مقابل عمولة.
+
+## التطوير المستقبلي
+
+مجتمع للمشاركة والتعليقات والتقييمات، ومتجر للمكونات، وتطبيق موبايل (Android و iOS)، ومرام أذكى تتعلم من ذوق المستخدم.
+
+## التقنيات
+
+- **الواجهة:** React، Vite، Tailwind CSS
+- **الباكند:** Node.js، Express، PostgreSQL، JWT
+- **الذكاء الاصطناعي:** Google Gemini API
+
+## عن النسخة المنشورة
+
+الرابط فوق **نسخة تجريبية للعرض** تشتغل بدون سيرفر: البيانات تنحفظ بمتصفح الزائر فقط، ومرام تقترح من وصفات الموقع نفسها، والدفع محاكاة. النسخة الكاملة (مرام بالذكاء الاصطناعي وقاعدة البيانات) تشتغل بتشغيل السيرفر، مثل الخطوات تحت.
+
+## التشغيل الكامل
+
+</div>
+
 ```bash
+# 1) قاعدة البيانات
+psql -U postgres -c "CREATE DATABASE shno_atbakh;"
+psql -U postgres -d shno_atbakh -f server/sql/schema.sql
+
+# 2) السيرفر (المنفذ 3000)
 cd server
 npm install
-cp .env.example .env   # ثم عبّي القيم
+cp .env.example .env   # عبّي القيم: قاعدة البيانات، JWT_SECRET، GEMINI_API_KEY
 npm run dev
-```
 
-### 2. الواجهة (المنفذ 5173)
-```bash
+# 3) الواجهة (المنفذ 5173)
 cd client
 npm install
 npm run dev
 ```
 
-## الفريق
+<div dir="rtl" align="right">
 
-| العضوة | الدور |
-|---|---|
-| سارة | Team leader — ميزة «شنو أطبخ؟» ومساعدة الـ AI «مرام» (frontend + backend) |
-| فاطمة | Backend — المستخدمين، المفضلة، الاستكشاف، وجبات الأسبوع، قاعدة البيانات |
-| زهراء | Frontend — الصفحات والهوية البصرية |
+## عن المشروع
 
-## ميزة مرام (AI)
+طوّرته **سارة** ([@engsarahcmc](https://github.com/engsarahcmc))، قائدة الفريق والمطورة الرئيسية: ميزة مرام والذكاء الاصطناعي، وإعادة تصميم الواجهة، ونظام Premium ولوحة الأرباح.
+بدأ كمشروع تخرج في الـ Full-Stack، ويا مساهمة **فاطمة** في الباكند و**زهراء** في التصميم الأولي.
 
-```http
-POST /api/suggest
-```
+</div>
 
-```json
-{ "ingredients": ["دجاج", "رز"], "people": 2, "mealType": "غداء", "lang": "ar" }
-```
+---
 
-`people` و`mealType` و`lang` اختيارية. `lang` تكون `ar` أو `en`.
+## English
 
-تفاصيل روابط الباكند الباقية موجودة في [`server/README.md`](server/README.md).
+**Shno Atbakh? ("What should I cook?")** is a smart recipe platform. Pick what's in your fridge and **Maram**, an AI cooking assistant powered by Google Gemini, suggests recipes that fit, in Arabic or English.
 
-> رسومات شخصية مرام مولّدة بمساعدة الذكاء الاصطناعي.
+🔗 **[Live demo](https://engsarahcmc.github.io/shino-atbakh/)** (admin demo account: `demo@shno.app` / `demo1234`). The live demo runs without a server: data stays in your browser, Maram picks from the site's own recipes, and payments are simulated.
 
-## الحسابات والصلاحيات
+**Features:** AI suggestions, interactive fridge, recipe pages with quantities and steps, weekly meal planner, explore and favourites, email or Google sign-in, Premium subscription with demo payments, admin dashboard with revenue figures, Arabic (RTL) and English.
 
-- كل شخص يسجّل بالموقع يصير **مستخدم**.
-- **المدير** (الدور `admin` بجدول `roles`) يفتح **لوحة التحكم** (`/admin`): يشوف الإحصائيات، ويبحث بالمستخدمين، ويغيّر صلاحياتهم، ويوقف أو يفعّل أو يحذف حساباتهم.
-- السيرفر يقرأ رقم دور المدير من جدول `roles` حسب الاسم تلقائياً عند التشغيل.
-- لإعداد أول مدير، شغّلي الملف `server/sql/admin-setup.sql` على قاعدة البيانات، بعد ما تكتبين إيميلك بداخله.
+**Stack:** React, Vite, Tailwind CSS · Node.js, Express, PostgreSQL, JWT · Google Gemini API.
 
-| الرابط | الوظيفة |
-|---|---|
-| `GET /api/admin/stats` | أرقام لوحة التحكم |
-| `GET /api/admin/users?search=` | قائمة المستخدمين |
-| `PATCH /api/admin/users/:id/role` | `{ "role": "user" \| "admin" }` |
-| `PATCH /api/admin/users/:id/status` | `{ "isActive": true \| false }` |
-| `DELETE /api/admin/users/:id` | حذف مستخدم |
-
-كل روابط `/api/admin` تحتاج تسجيل دخول بحساب مدير.
-
-## اشتراك Premium (الدفع تجريبي)
-
-- **المجاني:** 5 اقتراحات من مرام باليوم (الزائر 3)، وكل الوصفات العادية.
-- **بريميوم:** مرام بلا حدود، ووصفات حصرية (البرياني، تبسي الباذنجان، كبة حلب، المسكوف)، وبدون إعلانات.
-- **الأسعار:** شهري 5,000 د.ع، سنوي 48,000 د.ع.
-- **الدفع محاكاة فقط** (زين كاش، كي كارد، فاست پاي): ما ينسحب أي مبلغ، بس تنسجل العملية ويتفعل الاشتراك.
-- السيرفر ينشئ جداول `subscriptions` و`ai_usage` وحده عند التشغيل (الأوامر موجودة بـ `server/sql/premium.sql`).
-
-| الرابط | الوظيفة |
-|---|---|
-| `GET /api/premium/plans` | الخطط والأسعار وحدود الاستخدام |
-| `GET /api/premium/status` | حالة اشتراك المستخدم وسجل عملياته |
-| `POST /api/premium/subscribe` | `{ "plan": "monthly" \| "yearly", "method": "zaincash" \| "qicard" \| "fastpay" }` |
-| `POST /api/premium/cancel` | إلغاء الاشتراك |
-
-إذا خلص حد مرام اليومي، `POST /api/suggest` يرجع `429` مع `code: "DAILY_LIMIT"`.
+Built by **Sara** ([@engsarahcmc](https://github.com/engsarahcmc)), team lead and main developer, with contributions from Fatima (backend) and Zahraa (initial design).

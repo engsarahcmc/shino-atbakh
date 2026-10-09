@@ -71,7 +71,7 @@ function Profile() {
         <Navbar />
         <main className="py-16 min-h-[70vh]">
           <div className="container pf-guest">
-            <img src="/maram/full-thinking.webp" alt="" />
+            <img src={`${import.meta.env.BASE_URL}maram/full-thinking.webp`} alt="" />
             <h1>{t("profile.guestTitle")}</h1>
             <p>{t("profile.guestBody")}</p>
             <Link to="/login" className="pf-btn">{t("auth.navLogin")}</Link>
@@ -127,7 +127,7 @@ function Profile() {
               <div><b>{plannedDays()}</b><span>{t("profile.statWeek")}</span></div>
             </div>
 
-            <img className="pf-sign" src="/maram/avatar-happy.webp" alt="" />
+            <img className="pf-sign" src={`${import.meta.env.BASE_URL}maram/avatar-happy.webp`} alt="" />
 
             <div className="pf-actions">
               {isAdmin && <Link to="/admin" className="pf-btn">{t("profile.goAdmin")}</Link>}

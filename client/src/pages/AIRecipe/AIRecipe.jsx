@@ -78,7 +78,7 @@ function AIRecipeView({ saved }) {
         <Navbar />
         <main className="py-16 min-h-[70vh]">
           <div className="container empty-state">
-            <img className="empty-maram" src="/maram/full-confused.webp" alt="" />
+            <img className="empty-maram" src={`${import.meta.env.BASE_URL}maram/full-confused.webp`} alt="" />
             <p>{t("aiRecipe.missing")}</p>
             <Link className="button button-olive" to="/#maram-fridge">{t("aiRecipe.toFridge")}</Link>
           </div>
@@ -107,7 +107,7 @@ function AIRecipeView({ saved }) {
           <header className="rd-head">
             <div className="rd-media">
               <div className="rd-art air-art" aria-hidden="true">
-                <img src="/maram/full-happy.webp" alt="" />
+                <img src={`${import.meta.env.BASE_URL}maram/full-happy.webp`} alt="" />
               </div>
             </div>
             <div className="rd-intro">
@@ -124,14 +124,14 @@ function AIRecipeView({ saved }) {
 
           {status === "loading" && (
             <div className="air-wait" role="status">
-              <img src="/maram/avatar-thinking.webp" alt="" />
+              <img src={`${import.meta.env.BASE_URL}maram/avatar-thinking.webp`} alt="" />
               <p>{t("aiRecipe.preparing")}</p>
             </div>
           )}
 
           {errorText && (
             <div className="air-wait bad" role="alert">
-              <img src="/maram/avatar-confused.webp" alt="" />
+              <img src={`${import.meta.env.BASE_URL}maram/avatar-confused.webp`} alt="" />
               <p>{errorText}</p>
               <button type="button" onClick={retry}>{t("aiRecipe.retry")}</button>
             </div>
@@ -176,7 +176,7 @@ function AIRecipeView({ saved }) {
 
                 {details.tip && (
                   <div className="air-tip">
-                    <img src="/maram/avatar-idle.webp" alt="" />
+                    <img src={`${import.meta.env.BASE_URL}maram/avatar-idle.webp`} alt="" />
                     <div>
                       <b>{t("aiRecipe.tipTitle")}</b>
                       <p>{details.tip}</p>
@@ -186,7 +186,7 @@ function AIRecipeView({ saved }) {
 
                 {steps.length > 0 && stepsDone === steps.length && (
                   <div className="rd-done">
-                    <img src="/maram/avatar-happy.webp" alt="" />
+                    <img src={`${import.meta.env.BASE_URL}maram/avatar-happy.webp`} alt="" />
                     <p>{t("detail.allDone")}</p>
                   </div>
                 )}

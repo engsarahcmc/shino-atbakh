@@ -54,7 +54,7 @@ function RecipeCard({ recipe, onFavorite }) {
           <h3>
             {canOpen ? (
               <a
-                href={`/recipe/${recipe.id}`}
+                href={`${import.meta.env.BASE_URL}recipe/${recipe.id}`}
                 className="recipe-link"
                 onClick={(e) => {
                   e.preventDefault()

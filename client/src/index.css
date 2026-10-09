@@ -1498,3 +1498,6 @@ a.category-card {
 .nav-premium:hover,
 .nav-premium.active { background: #e7b65e; color: #352b1e; }
 .nav-crown { color: #c9952f; font-size: 14px; margin-inline-start: -2px; }
+
+.footer-demo { flex-basis: 100%; margin: 6px 0 0; font-size: 12px; color: #a49a88; }
+.footer-inner { flex-wrap: wrap; }

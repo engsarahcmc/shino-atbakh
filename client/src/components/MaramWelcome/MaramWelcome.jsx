@@ -100,7 +100,7 @@ function MaramWelcome() {
           <img
             key={mood}
             className="mw-maram"
-            src={`/maram/full-${mood}.webp`}
+            src={`${import.meta.env.BASE_URL}maram/full-${mood}.webp`}
             alt={t("welcome.maramAlt")}
           />
           <div className="mw-counter" aria-hidden="true" />

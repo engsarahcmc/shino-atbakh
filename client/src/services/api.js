@@ -1,8 +1,23 @@
 // كل طلبات الواجهة للسيرفر من هذا الملف
+import { demoRequest } from "./demoApi"
+
+// النسخة التجريبية (GitHub Pages): بدون سيرفر، البيانات بالمتصفح
+export const IS_DEMO = import.meta.env.VITE_DEMO === "true"
+
 const API_BASE_URL =
   import.meta.env.VITE_API_URL || "http://localhost:3000/api"
 
 async function request(path, { method = "GET", body, auth = false } = {}) {
+  if (IS_DEMO) {
+    let token = null
+    try {
+      token = localStorage.getItem("token")
+    } catch {
+      /* تجاهل */
+    }
+    return demoRequest(path, { method, body: body || {}, token: auth ? token : null })
+  }
+
   const headers = { "Content-Type": "application/json" }
 
   if (auth) {

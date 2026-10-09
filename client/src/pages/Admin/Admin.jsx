@@ -72,7 +72,7 @@ function Admin() {
   if (!isLoggedIn) {
     return (
       <Gate>
-        <img src="/maram/full-thinking.webp" alt="" />
+        <img src={`${import.meta.env.BASE_URL}maram/full-thinking.webp`} alt="" />
         <h1>{t("admin.title")}</h1>
         <p>{t("admin.guest")}</p>
         <Link to="/login" className="ad-btn">{t("auth.navLogin")}</Link>
@@ -83,7 +83,7 @@ function Admin() {
   if (!isAdmin) {
     return (
       <Gate>
-        <img src="/maram/full-confused.webp" alt="" />
+        <img src={`${import.meta.env.BASE_URL}maram/full-confused.webp`} alt="" />
         <h1>{t("admin.title")}</h1>
         <p>{t("admin.denied")}</p>
         <Link to="/" className="ad-btn">{t("nav.home")}</Link>
@@ -119,7 +119,7 @@ function Admin() {
               <h1>{t("admin.title")}</h1>
               <p>{t("admin.body")}</p>
             </div>
-            <img src="/maram/avatar-idle.webp" alt="" className="ad-maram" />
+            <img src={`${import.meta.env.BASE_URL}maram/avatar-idle.webp`} alt="" className="ad-maram" />
           </header>
 
           {status === "error" && <p className="ad-error" role="alert">{t("admin.loadError")}</p>}

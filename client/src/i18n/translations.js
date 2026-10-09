@@ -2,6 +2,11 @@
 // لإضافة نص جديد: أضيفيه بالاثنين بنفس المفتاح.
 const translations = {
   ar: {
+    demo: {
+      loginHint: "نسخة تجريبية: جرّب حساب المدير حتى تشوف لوحة التحكم، أو سوِّ حساب جديد.",
+      fill: "املأ الحساب التجريبي",
+      footer: "نسخة تجريبية للعرض: البيانات تنحفظ بمتصفحك فقط، ومرام تقترح من وصفات الموقع، والدفع محاكاة.",
+    },
     premium: {
       nav: "بريميوم",
       badge: "بريميوم",
@@ -294,6 +299,11 @@ const translations = {
   },
 
   en: {
+    demo: {
+      loginHint: "Demo version: try the admin account to see the dashboard, or create a new account.",
+      fill: "Fill demo account",
+      footer: "Demo version: data is saved in your browser only, Maram suggests from the site's recipes, and payments are simulated.",
+    },
     premium: {
       nav: "Premium",
       badge: "Premium",

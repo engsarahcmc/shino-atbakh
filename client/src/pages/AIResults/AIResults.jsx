@@ -35,7 +35,7 @@ function AIResults() {
             name: s.name,
             description: s.description,
             cuisine: s.cuisine || t("ai.pick"),
-            image: "/recipe-placeholder.svg",
+            image: `${import.meta.env.BASE_URL}recipe-placeholder.svg`,
             time: s.time,
             match: s.matchPercentage,
             ingredients: s.ingredients,
@@ -94,7 +94,7 @@ function AIResults() {
 
           {status === "limit" && (
             <div className="empty-state">
-              <img className="empty-maram" src="/maram/full-confused.webp" alt="" />
+              <img className="empty-maram" src={`${import.meta.env.BASE_URL}maram/full-confused.webp`} alt="" />
               <h2 className="text-2xl font-bold mb-3">{t("premium.limitReached")}</h2>
               <Link to="/premium" className="button button-sun">✦ {t("premium.upgrade")}</Link>
             </div>

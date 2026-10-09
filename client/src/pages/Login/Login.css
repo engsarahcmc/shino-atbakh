@@ -21,3 +21,9 @@
   .lg-inner { grid-template-columns: 1fr; }
   .lg-art img { height: 240px; }
 }
+
+/* النسخة التجريبية */
+.lg-demo { margin-top: 18px; padding: 14px; border-radius: 12px; border: 1px dashed #d8c48f; background: #fbf4e2; display: grid; gap: 8px; font-size: 14px; color: #5b4a22; }
+.lg-demo p { margin: 0; line-height: 1.6; }
+.lg-demo code { font-size: 14px; font-weight: 700; color: #31452e; }
+.lg-demo button { justify-self: start; border: 0; border-radius: 8px; padding: 8px 14px; background: #31452e; color: #fff9eb; font-weight: 700; cursor: pointer; }

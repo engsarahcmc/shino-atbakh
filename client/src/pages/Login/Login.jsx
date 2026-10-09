@@ -5,6 +5,8 @@ import Footer from "../../components/Footer/Footer.jsx"
 import useLang from "../../i18n/useLang"
 import useAuth from "../../auth/useAuth"
 import authErrorKey from "../../auth/errorMessage"
+import { IS_DEMO } from "../../services/api"
+import { DEMO_ADMIN } from "../../services/demoApi"
 import "./Login.css"
 
 function Login() {
@@ -51,7 +53,7 @@ function Login() {
       <main className="lg">
         <div className="container lg-inner">
           <div className="lg-art" aria-hidden="true">
-            <img src={`/maram/full-${isRegister ? "excited" : "idle"}.webp`} alt="" />
+            <img src={`${import.meta.env.BASE_URL}maram/full-${isRegister ? "excited" : "idle"}.webp`} alt="" />
           </div>
 
           <div className="lg-card">
@@ -105,6 +107,16 @@ function Login() {
                 {busy ? t("auth.working") : t(isRegister ? "auth.registerButton" : "auth.loginButton")}
               </button>
             </form>
+
+            {IS_DEMO && !isRegister && (
+              <div className="lg-demo">
+                <p>{t("demo.loginHint")}</p>
+                <code dir="ltr">{DEMO_ADMIN.email} / {DEMO_ADMIN.password}</code>
+                <button type="button" onClick={() => setForm({ ...form, ...DEMO_ADMIN })}>
+                  {t("demo.fill")}
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </main>

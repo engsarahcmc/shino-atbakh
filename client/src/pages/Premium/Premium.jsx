@@ -49,7 +49,7 @@ function Premium() {
               <p>{t("premium.body")}</p>
               <p className="pm-demo" role="note"><span aria-hidden="true">ⓘ</span> {t("premium.demo")}</p>
             </div>
-            <img src="/maram/full-excited.webp" alt="" className="pm-maram" />
+            <img src={`${import.meta.env.BASE_URL}maram/full-excited.webp`} alt="" className="pm-maram" />
           </div>
         </section>
 
@@ -159,7 +159,7 @@ function Checkout({ plan, onClose, onDone }) {
 
       {step === "done" ? (
         <div className="pm-done" role="status">
-          <img src="/maram/full-happy.webp" alt="" />
+          <img src={`${import.meta.env.BASE_URL}maram/full-happy.webp`} alt="" />
           <h2 id="pm-dialog-title">{t("premium.successTitle")}</h2>
           <p>{t("premium.successBody")}</p>
           <button type="button" className="pm-pay" onClick={() => navigate("/")}>{t("premium.start")}</button>

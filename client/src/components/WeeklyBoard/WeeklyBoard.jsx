@@ -115,7 +115,7 @@ function WeeklyBoard() {
         <div className="wb-maram">
           <div className="wb-bubble" aria-live="polite">{message ?? summary}</div>
           <div className="wb-ava">
-            <img key={mood + (message ?? "")} src={`/maram/avatar-${planned === 7 && !message ? "happy" : mood}.webp`} alt={t("fridge.maramAlt")} />
+            <img key={mood + (message ?? "")} src={`${import.meta.env.BASE_URL}maram/avatar-${planned === 7 && !message ? "happy" : mood}.webp`} alt={t("fridge.maramAlt")} />
           </div>
         </div>
       </div>

@@ -38,7 +38,7 @@ function Favorites() {
             </div>
           ) : (
             <div className="empty-state">
-              <img className="empty-maram" src="/maram/full-confused.webp" alt="" />
+              <img className="empty-maram" src={`${import.meta.env.BASE_URL}maram/full-confused.webp`} alt="" />
               <h2>{t("favorites.emptyTitle")}</h2>
               <p>{t("favorites.emptyBody")}</p>
             </div>
